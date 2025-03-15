@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Landing Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        #jumpscare {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            animation: flash 0.1s infinite alternate;
+        }
+        #jumpscare img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @keyframes flash {
+            0% { background-color: black; }
+            100% { background-color: red; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Selamat datang UYEN WORLD! Tunggu beberapa detik...</h1>
+    <div id="jumpscare">
+        <img src="https://i.postimg.cc/65RCdXyk/IMG-7430.webp" alt="UYEN">
+        <audio id="scream" src="https://s84-ious.freeconvert.com/task/67d5526632e5176e387a9ace/Ahh...%20Sakit%F0%9F%98%AD%20-%20Heri%20Arezha02.webm"></audio>
+    </div>
+
+    <script>
+        function activateJumpscare() {
+            document.getElementById("jumpscare").style.display = "flex";
+            let scream = document.getElementById("scream");
+            scream.volume = 1.0;
+            scream.play();
+
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            }
+        }
+
+        setTimeout(activateJumpscare, 5000); // 5 detik
+    </script>
+</body>
+</html>
